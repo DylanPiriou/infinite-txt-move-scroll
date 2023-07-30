@@ -13,7 +13,7 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 
-// 
+
 const firstTxt = document.querySelector(".first")
 const secondText = document.querySelector(".second")
 const slider = document.querySelector(".slider")
@@ -44,4 +44,30 @@ gsap.to(slider, {
         onUpdate: e => direction = e.direction * -1
     },
     x: "-=300px"
+})
+
+const borderFooter = document.querySelector(".ligne-arrondie")
+const footer = document.querySelector("footer")
+gsap.to(borderFooter, {
+    scrollTrigger: {
+        trigger: footer,
+        start: "top 40%",
+        end: window.innerHeight / 2,
+        scrub: true,
+    },
+    width: "150%"
+})
+
+
+const lines = document.querySelectorAll(".line")
+const linesContainer = document.querySelector(".lines__container")
+gsap.to(lines, {
+    scrollTrigger: {
+        trigger: linesContainer,
+        start: "top 70%",
+        end: "bottom 80%",
+        scrub: true
+    },
+    x: 0,
+    stagger: 0.1
 })

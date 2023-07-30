@@ -29,4 +29,41 @@ main .slider__container .slider p {
   font-size: 15vw;
   white-space: nowrap;
   color: whitesmoke;
+}
+
+.lines__container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10vh;
+}
+.lines__container .line {
+  width: 100%;
+  height: 2px;
+  background: rgb(0, 0, 0);
+  transform: translateX(-100%);
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+  font-size: 2vw;
+  background: rgb(0, 0, 0);
+}
+footer .ligne-arrondie {
+  position: absolute;
+  top: -10%;
+  width: 110%; /* Ajustez la largeur selon vos besoins */
+  height: 200px; /* Ajustez la hauteur pour la longueur de la ligne */
+  background-color: whitesmoke;
+  border-radius: 0 0 60% 60%;
+  transition: all 0.3s linear;
 }/*# sourceMappingURL=style.css.map */
