@@ -34,16 +34,42 @@ const animation = () => {
 };
 requestAnimationFrame(animation);
 
+const main = document.querySelector("main")
 gsap.registerPlugin(ScrollTrigger);
 gsap.to(slider, {
     scrollTrigger: {
-        trigger: document.documentElement,
+        trigger: main,
         start: 0,
-        end: window.innerHeight,
+        end: "bottom",
         scrub: true,
         onUpdate: e => direction = e.direction * -1
     },
     x: "-=300px"
+})
+
+const star = document.querySelector(".star")
+const body = document.querySelector("body")
+gsap.from(star, {
+    scrollTrigger: {
+        trigger: body,
+        start: "top",
+        end: "bottom",
+        scrub: true
+    },
+    rotate: "+=360deg"
+})
+
+const img = document.querySelector(".bg")
+const header = document.querySelector("header")
+gsap.from(img, {
+    scrollTrigger: {
+        trigger: header,
+        start: "top",
+        end: "bottom 40%",
+        scrub: true,
+        pin: true
+    },
+    clipPath: `inset(15%)`
 })
 
 const borderFooter = document.querySelector(".ligne-arrondie")
