@@ -2,12 +2,12 @@
 const lenis = new Lenis();
 
 lenis.on("scroll", (e) => {
-  // console.log(e);
+    // console.log(e);
 });
 
 function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
+    lenis.raf(time);
+    requestAnimationFrame(raf);
 }
 
 requestAnimationFrame(raf);
@@ -21,14 +21,14 @@ let xPercent = 0;
 let direction = -1;
 
 const animation = () => {
-    if(xPercent <= -100){
+    if (xPercent <= -100) {
         xPercent = 0;
     }
-    if(xPercent > 0){
+    if (xPercent > 0) {
         xPercent = -100;
     }
-    gsap.set(firstTxt, {xPercent: xPercent})
-    gsap.set(secondText, {xPercent: xPercent})
+    gsap.set(firstTxt, { xPercent: xPercent })
+    gsap.set(secondText, { xPercent: xPercent })
     xPercent += 0.2 * direction;
     requestAnimationFrame(animation)
 };
@@ -90,10 +90,50 @@ const linesContainer = document.querySelector(".lines__container")
 gsap.to(lines, {
     scrollTrigger: {
         trigger: linesContainer,
-        start: "top 70%",
-        end: "bottom 80%",
-        scrub: true
+        start: "top 90%",
+        end: "bottom 90%",
+        scrub: .1
     },
     x: 0,
-    stagger: 0.1
+    stagger: 0.2
 })
+
+const skills = document.querySelectorAll(".skiller-container")
+gsap.from(skills, {
+    scrollTrigger: {
+        trigger: linesContainer,
+        start: "top 70%",
+        end: "bottom 90%",
+        scrub: true
+    },
+    x: -50,
+    autoAlpha: 0,
+    stagger: 0.2
+})
+// const projectContainer = document.querySelector(".projects")
+// const projectSlider = document.querySelector(".projects__slider")
+// const images = document.querySelectorAll(".img__project")
+
+// gsap.to(projectSlider, {
+//     scrollTrigger: {
+//         trigger: projectContainer,
+//         start: "top",
+//         end: "bottom",
+//         pin: true
+//     }
+// })
+
+// const square = document.createElement("div");
+// square.classList.add("square");
+// images[0].appendChild(square)
+
+// images.forEach(img => {
+//     gsap.to(square, {
+//         scrollTrigger: {
+//             trigger: projectContainer,
+//             start: "enter",
+//             scrub: true
+//         },
+//         x: `+${projectSlider.getBoundingClientRect().width - square.getBoundingClientRect().width}`
+//     });
+// })
